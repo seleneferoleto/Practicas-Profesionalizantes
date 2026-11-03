@@ -9,11 +9,21 @@ Sitio web estático con secciones separadas para una veterinaria:
 - Equipo
 - Contacto
 
-## Archivos
+## Organización
 
-- `index.html`: estructura de la página.
-- `styles.css`: estilos, espaciado entre secciones y diseño responsive.
-- `script.js`: menú móvil y mensaje de formulario.
+- [frontend/](frontend/): páginas HTML del sitio.
+  - [css/](frontend/css/): hojas de estilo.
+  - [js/](frontend/js/): scripts del navegador y cliente de la API.
+  - [Fotos/](frontend/Fotos/): imágenes, logos y fotos de productos.
+- [backend/](backend/): servidor Node.js, API y configuración de MySQL.
+  - [routes/](backend/routes/): rutas de la API.
+  - [middleware/](backend/middleware/): controles de acceso.
+  - [sql/](backend/sql/): esquema de la base de datos.
+  - [tests/](backend/tests/): pruebas automatizadas.
+- [docs/](docs/): capturas de referencia.
+
+El archivo de configuración local `backend/.env` y las dependencias
+`backend/node_modules/` no se suben al repositorio.
 
 ## Cómo iniciar el sitio
 
@@ -21,7 +31,8 @@ El registro, el inicio de sesión y los turnos necesitan el backend Node.js y la
 base de datos MySQL. Seguí las instrucciones de configuración en
 [backend/README.md](backend/README.md) y luego abrí **http://localhost:3000**.
 
-También podés servir el frontend con Live Server en **http://localhost:5500**,
+También podés abrir la carpeta `frontend/` como raíz de Live Server y visitar
+**http://localhost:5500**,
 siempre que el backend esté corriendo en **http://localhost:3000** y la
 configuración `FRONTEND_ORIGIN` del backend coincida.
 
@@ -31,6 +42,7 @@ funciones de cuenta: en ese modo no hay un servidor que atienda la API.
 Para una vista estática de solo lectura, se puede iniciar un servidor local:
 
 ```bash
+cd frontend
 python -m http.server 8000
 ```
 
@@ -42,8 +54,8 @@ Este modo estático no habilita registro, inicio de sesión ni turnos.
 
 ## Personalización rápida
 
-- Cambiar colores: editar variables en `:root` dentro de `styles.css`.
-- Cambiar datos de contacto/sedes: editar el contenido en `index.html`.
+- Cambiar colores: editar variables en `:root` dentro de [frontend/css/styles.css](frontend/css/styles.css).
+- Cambiar datos de contacto/sedes: editar el contenido en [frontend/index.html](frontend/index.html).
 
 ## Diseño responsive
 

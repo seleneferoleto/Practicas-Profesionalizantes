@@ -1,6 +1,9 @@
 # Backend — La Huella Veterinaria
 
 Node.js + Express + MySQL. El mismo servidor entrega el sitio y la API.
+Los archivos públicos se sirven desde la carpeta hermana `frontend/`;
+las direcciones del sitio siguen siendo `/`, `/cuenta.html`, `/turnos.html`,
+`/producto.html` y `/admin.html`. El backend y `docs/` no se publican.
 
 ## Base de datos
 

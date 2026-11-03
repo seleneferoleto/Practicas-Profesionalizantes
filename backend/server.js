@@ -44,9 +44,8 @@ app.use("/api/turnos", turnosRoutes);
 app.use("/api/sedes", sedesRoutes);
 app.use("/api/productos", productosRoutes);
 
-// El frontend vive en la carpeta de arriba de /backend; el código y el .env del servidor no se exponen
-app.use("/backend", (req, res) => res.status(404).end());
-app.use(express.static(path.join(__dirname, "..")));
+// Solo se publican los archivos del frontend, no el backend ni la documentación.
+app.use(express.static(path.join(__dirname, "..", "frontend")));
 
 // Mantiene siempre cargados los horarios de los próximos días
 const renovarHorarios = () =>
