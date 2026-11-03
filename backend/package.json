@@ -1,0 +1,21 @@
+{
+  "name": "la-huella-backend",
+  "version": "1.0.0",
+  "description": "Backend (Node.js + Express + MySQL) para La Huella - Veterinaria: cuenta de usuario, turnos por sucursal y stock de productos.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "init": "node init.js",
+    "actualizar-equipo": "node actualizar-equipo.js",
+    "seed": "node seed.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "mysql2": "^3.11.0"
+  }
+}

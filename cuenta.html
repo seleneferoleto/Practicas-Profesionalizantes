@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mi cuenta - La Huella</title>
+    <link rel="icon" type="image/webp" href="Fotos/logo.webp" />
+    <meta
+      name="description"
+      content="Iniciá sesión o creá tu cuenta en La Huella-Veterinaria para reservar turnos y hacer pedidos."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="cuenta.css" />
+    <script src="api.js" defer></script>
+    <script src="script.js" defer></script>
+    <script src="account.js" defer></script>
+    <script src="cuenta-form.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav-wrapper">
+        <a href="index.html#inicio" class="logo">
+          <img src="Fotos/logo.webp" alt="Logo La Huella-Veterinaria" class="logo-img" /> La Huella-Veterinaria
+        </a>
+        <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">☰</button>
+        <nav class="nav" id="mainNav">
+          <a href="index.html#inicio">Home</a>
+          <a href="index.html#sobre">Sobre nosotros</a>
+          <a href="index.html#sedes">Nuestras sedes</a>
+          <a href="index.html#servicios">Nuestros servicios</a>
+          <a href="turnos.html">Turnos</a>
+        </nav>
+        <div class="account-menu" id="accountMenu">
+          <button class="account-btn" id="accountBtn" aria-label="Cuenta" aria-haspopup="true" aria-expanded="false">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.8" />
+              <path d="M4 20c0-3.5 3.5-6 8-6s8 2.5 8 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+            </svg>
+          </button>
+          <div class="account-dropdown" id="accountDropdown"></div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section-spaced auth-section">
+        <div class="container auth-wrapper">
+          <div class="auth-card card">
+            <div class="auth-tabs">
+              <button type="button" class="auth-tab active" data-tab="login">Iniciar sesión</button>
+              <button type="button" class="auth-tab" data-tab="registro">Registrarme</button>
+            </div>
+
+            <form class="auth-form active" id="loginForm">
+              <label for="loginEmail">Email</label>
+              <input id="loginEmail" name="email" type="email" required />
+
+              <label for="loginPassword">Contraseña</label>
+              <input id="loginPassword" name="password" type="password" required />
+
+              <button class="btn btn-primary" type="submit">Iniciar sesión</button>
+              <p class="auth-msg" id="loginMsg"></p>
+            </form>
+
+            <form class="auth-form" id="registroForm">
+              <label for="registroNombre">Nombre y apellido</label>
+              <input id="registroNombre" name="nombre" type="text" required />
+
+              <label for="registroEmail">Email</label>
+              <input id="registroEmail" name="email" type="email" required />
+
+              <label for="registroTelefono">Teléfono (opcional)</label>
+              <input id="registroTelefono" name="telefono" type="tel" />
+
+              <label for="registroPassword">Contraseña</label>
+              <input id="registroPassword" name="password" type="password" minlength="6" required />
+
+              <button class="btn btn-primary" type="submit">Crear cuenta</button>
+              <p class="auth-msg" id="registroMsg"></p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>© 2026 Veterinaria La Huella · Cuidamos con amor.</p>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Administración - La Huella</title>
+    <link rel="icon" type="image/webp" href="Fotos/logo.webp" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="cuenta.css" />
+    <script src="api.js" defer></script>
+    <script src="script.js" defer></script>
+    <script src="account.js" defer></script>
+    <script src="admin.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav-wrapper">
+        <a href="index.html#inicio" class="logo">
+          <img src="Fotos/logo.webp" alt="Logo La Huella-Veterinaria" class="logo-img" /> La Huella-Veterinaria
+        </a>
+        <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">☰</button>
+        <nav class="nav" id="mainNav">
+          <a href="index.html#inicio">Home</a>
+          <a href="index.html#sobre">Sobre nosotros</a>
+          <a href="index.html#sedes">Nuestras sedes</a>
+          <a href="index.html#servicios">Nuestros servicios</a>
+          <a href="turnos.html">Turnos</a>
+        </nav>
+        <div class="account-menu" id="accountMenu">
+          <button class="account-btn" id="accountBtn" aria-label="Cuenta" aria-haspopup="true" aria-expanded="false">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.8" />
+              <path d="M4 20c0-3.5 3.5-6 8-6s8 2.5 8 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+            </svg>
+          </button>
+          <div class="account-dropdown" id="accountDropdown"></div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero section-spaced" style="padding-top:5rem;padding-bottom:2rem">
+        <div class="container">
+          <span class="pill">Solo acceso autorizado</span>
+          <h1>Panel de Administración</h1>
+          <p style="color:var(--muted)">Gestioná los turnos de todas las sucursales.</p>
+        </div>
+      </section>
+
+      <section class="section-spaced" style="padding-top:1rem">
+        <div class="container">
+
+          <div class="admin-tabs" style="display:flex;gap:0.75rem;margin-bottom:2rem;flex-wrap:wrap">
+            <button class="admin-tab-btn active" data-pane="paneTurnos">🩺 Citas médicas</button>
+          </div>
+
+          <!-- CITAS -->
+          <div id="paneTurnos" class="admin-tab-pane">
+            <h2>Citas médicas</h2>
+            <div id="turnosAdminLista">Cargando…</div>
+          </div>
+
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>© 2026 Veterinaria La Huella · Panel de administración</p>
+      </div>
+    </footer>
+  </body>
+</html>
