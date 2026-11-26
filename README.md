@@ -11,51 +11,40 @@ Sitio web estático con secciones separadas para una veterinaria:
 
 ## Organización
 
-- [frontend/](frontend/): páginas HTML del sitio.
-  - [css/](frontend/css/): hojas de estilo.
-  - [js/](frontend/js/): scripts del navegador y cliente de la API.
-  - [Fotos/](frontend/Fotos/): imágenes, logos y fotos de productos.
-- [backend/](backend/): servidor Node.js, API y configuración de MySQL.
-  - [routes/](backend/routes/): rutas de la API.
-  - [middleware/](backend/middleware/): controles de acceso.
+- [frontend/](frontend/): aplicación React (Vite).
+  - [src/services/](frontend/src/services/): todas las peticiones HTTP a la API.
+  - [src/pages/](frontend/src/pages/) y [src/components/](frontend/src/components/): pantallas y componentes.
+  - [src/context/](frontend/src/context/): sesión del usuario.
+  - [src/css/](frontend/src/css/): hojas de estilo.
+  - [public/Fotos/](frontend/public/Fotos/): imágenes, logos y fotos de productos.
+- [backend/](backend/): servidor Node.js, API y configuración de MySQL, con
+  routes, controllers, services, repositories, models, middleware, exceptions y responses.
   - [sql/](backend/sql/): esquema de la base de datos.
-  - [tests/](backend/tests/): pruebas automatizadas.
+  - [tests/](backend/tests/): pruebas automatizadas (`npm test`).
 - [docs/](docs/): capturas de referencia.
 
 El archivo de configuración local `backend/.env` y las dependencias
-`backend/node_modules/` no se suben al repositorio.
+`node_modules/` no se suben al repositorio.
 
 ## Cómo iniciar el sitio
 
 El registro, el inicio de sesión y los turnos necesitan el backend Node.js y la
-base de datos MySQL. Seguí las instrucciones de configuración en
-[backend/README.md](backend/README.md) y luego abrí **http://localhost:3000**.
+base de datos MySQL. Seguí las instrucciones de [backend/README.md](backend/README.md) y luego:
 
-También podés abrir la carpeta `frontend/` como raíz de Live Server y visitar
-**http://localhost:5500**,
-siempre que el backend esté corriendo en **http://localhost:3000** y la
-configuración `FRONTEND_ORIGIN` del backend coincida.
-
-No abras los archivos `.html` directamente desde el explorador para usar las
-funciones de cuenta: en ese modo no hay un servidor que atienda la API.
-
-Para una vista estática de solo lectura, se puede iniciar un servidor local:
+**Desarrollo** (dos terminales):
 
 ```bash
-cd frontend
-python -m http.server 8000
+cd backend && npm start        # API en http://localhost:3000
+cd frontend && npm install && npm run dev   # sitio en http://localhost:5173
 ```
 
-Luego abrí:
-
-- http://localhost:8000
-
-Este modo estático no habilita registro, inicio de sesión ni turnos.
+**Producción**: `cd frontend && npm run build` y abrí **http://localhost:3000**
+(el backend publica `frontend/dist`).
 
 ## Personalización rápida
 
-- Cambiar colores: editar variables en `:root` dentro de [frontend/css/styles.css](frontend/css/styles.css).
-- Cambiar datos de contacto/sedes: editar el contenido en [frontend/index.html](frontend/index.html).
+- Cambiar colores: editar variables en `:root` dentro de [frontend/src/css/styles.css](frontend/src/css/styles.css).
+- Cambiar datos de contacto/sedes: editar [frontend/src/pages/Home.jsx](frontend/src/pages/Home.jsx).
 
 ## Diseño responsive
 

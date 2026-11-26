@@ -11,6 +11,7 @@ const turnosRoutes = require("./routes/turnos");
 const sedesRoutes = require("./routes/sedes");
 const productosRoutes = require("./routes/productos");
 const { generarDisponibilidad } = require("./disponibilidad");
+const { notFound, errorHandler } = require("./middleware/errorHandler");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -18,8 +19,8 @@ const PORT = process.env.PORT || 3000;
 app.use(
   cors({
     origin: process.env.FRONTEND_ORIGIN || [
-      "http://localhost:5500",
-      "http://127.0.0.1:5500",
+      "http://localhost:5173",
+      "http://127.0.0.1:5173",
     ],
     credentials: true,
   })
@@ -44,8 +45,15 @@ app.use("/api/turnos", turnosRoutes);
 app.use("/api/sedes", sedesRoutes);
 app.use("/api/productos", productosRoutes);
 
-// Solo se publican los archivos del frontend, no el backend ni la documentación.
-app.use(express.static(path.join(__dirname, "..", "frontend")));
+// Errores centralizados para toda la API
+app.use("/api", notFound);
+
+// Se publica el build de React (frontend/dist), no el backend ni la documentación.
+const dist = path.join(__dirname, "..", "frontend", "dist");
+app.use(express.static(dist));
+app.get(/^\/(?!api).*/, (req, res, next) => res.sendFile(path.join(dist, "index.html"), (err) => err && next()));
+
+app.use(errorHandler);
 
 // Mantiene siempre cargados los horarios de los próximos días
 const renovarHorarios = () =>

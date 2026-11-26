@@ -3,11 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Veterinaria- La Huella</title>
-    <link rel="icon" type="image/webp" href="Fotos/logo.webp" />
+    <title>Veterinaria - La Huella</title>
+    <link rel="icon" type="image/webp" href="/Fotos/logo.webp" />
     <meta
       name="description"
-      content="Cuidado integral para perros y gatos: consultas, vacunación, emergencias y peluquería en La Huella-Veterinaria ."
+      content="Cuidado integral para perros y gatos: consultas, vacunación, emergencias y peluquería en La Huella-Veterinaria."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,197 +15,9 @@
       href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/styles.css?v=3" />
-    <link rel="stylesheet" href="css/producto.css" />
-    <link rel="stylesheet" href="css/cuenta.css" />
-    <script src="js/api.js" defer></script>
-    <script src="js/script.js" defer></script>
-    <script src="js/account.js" defer></script>
   </head>
   <body>
-    <header class="topbar">
-      <div class="container nav-wrapper">
-        <a href="#inicio" class="logo"><img src="Fotos/logo.webp" alt="Logo La Huella-Veterinaria" class="logo-img" /> La Huella-Veterinaria</a>
-        <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">
-          ☰
-        </button>
-        <nav class="nav" id="mainNav">
-          <a href="#inicio">Home</a>
-          <a href="#sobre">Sobre nosotros</a>
-          <a href="#sedes">Nuestras sedes</a>
-          <a href="#servicios">Nuestros servicios</a>
-          <a href="turnos.html">Turnos</a>
-        </nav>
-        <div class="account-menu" id="accountMenu">
-          <button class="account-btn" id="accountBtn" aria-label="Cuenta" aria-haspopup="true" aria-expanded="false">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.8" />
-              <path d="M4 20c0-3.5 3.5-6 8-6s8 2.5 8 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-            </svg>
-          </button>
-          <div class="account-dropdown" id="accountDropdown"></div>
-        </div>
-      </div>
-    </header>
-
-    <main id="inicio">
-      <section class="hero section-spaced">
-        <div class="container hero-grid">
-          <div>
-            <span class="pill">Atención profesional y cálida</span>
-            <h1>Tu veterinaria de confianza para cuidar a toda la familia peluda</h1>
-            <p>
-              Brindamos atención preventiva y clínica para mascotas,
-              con un equipo comprometido de veterinarios capacitados   .
-            </p>
-          </div>
-          <div class="hero-card">
-            <h2>Horarios</h2>
-            <ul>
-              <li><strong>Lunes a Viernes:</strong> 10:00 - 13:00 / 16:00 - 19:00</li>
-              <li><strong>Sábados:</strong> 10:00 - 13:00</li>
-              <li><strong>Domingos:</strong> Cerrado</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section id="sobre" class="section-spaced section-light">
-        <div class="container split-grid">
-          <div>
-            <h2>Sobre nosotros</h2>
-            <p>
-              Desde 1991 estamos en la zona de Villa Ballester intentando aportar un granito de arena para mejorar la 
-                calidad de vida de nuestros mejores y más fieles amigos.
-                Luego de años de afianzarnos en la medicina veterinaria alopática comenzamos a investigar y profundizar 
-                más en métodos médicos que se focalicen en el paciente como un organismo integrado. 
-                Por ello, adquirimos vastos conocimientos y práctica en medicina holista.
-                De esta manera, en La Huella trabajamos siguiendo los principios hipocráticos: “actuar sin dañar…”,
-                ocupándonos de todo tipo de estímulo que actúa perjudicando o favoreciendo el bienestar animal.
-            </p>
-          </div>
-          <div class="info-card">
-            <ul>
-              <li>  Gracias a la medicina holista tratamos enfermedades crónicas utilizando medicamentos que no generen efectos
-                indeseables con largos períodos de uso.</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section id="servicios" class="section-spaced section-light">
-        <div class="container" style="margin-top: 2.5rem">
-          <h2>Nuestros Servicios</h2>
-          <div class="cards-grid">
-            <article class="card service-card">
-              <h3>Consultas clínicas</h3>
-              <p>Control general, diagnóstico y tratamiento personalizado.</p>
-              <div class="service-details">
-                <p>Evaluamos a tu mascota de forma integral, revisamos sus antecedentes y elaboramos un plan de atención adaptado a sus necesidades.</p>
-              </div>
-            </article>
-            <article class="card service-card">
-              <h3>Vacunación y desparasitación</h3>
-              <p>Planes anuales según la edad y necesidades de cada mascota.</p>
-              <div class="service-details">
-                <p>Te ayudamos a mantener al día el calendario sanitario y te indicamos los cuidados preventivos adecuados para cada etapa.</p>
-              </div>
-            </article>
-            <article class="card service-card">
-              <h3>Laboratorio y diagnóstico</h3>
-              <p>Análisis clínicos, ecografías y estudios complementarios.</p>
-              <div class="service-details">
-                <p>Contamos con estudios complementarios para obtener información precisa y acompañar el diagnóstico veterinario.</p>
-              </div>
-            </article>
-            <article class="card service-card">
-              <h3>Medicina Alopática</h3>
-              <p>Especializados en geriatría, pediatría, cardiología, cirugías y reproducción asistida, entre otros.</p>
-              <div class="service-details">
-                <p>Abordamos distintas especialidades con tratamientos convencionales personalizados y seguimiento profesional.</p>
-              </div>
-            </article>
-            <article class="card service-card">
-              <h3>Peluquería e higiene</h3>
-              <p>Baño, corte y cuidado estético para que perros y gatos luzcan y se sientan mejor.</p>
-              <div class="service-details">
-                <p>Realizamos cuidados de higiene y estética priorizando el bienestar, la comodidad y las características de cada mascota.</p>
-              </div>
-            </article>
-            <article class="card service-card">
-              <h3>Medicina Holista</h3>
-              <p>Profesionales especializados en acupuntura, fitomedicina, homeopatía, magnetoterapia y más.</p>
-              <div class="service-details">
-                <p>Combinamos distintas herramientas holistas para acompañar la salud de manera integral y respetuosa.</p>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="sedes" class="section-spaced">
-        <div class="container">
-          <h2>Nuestras sedes</h2>
-          <p class="section-intro">
-            Contamos con dos sedes para estar siempre cerca de vos.
-          </p>
-          <div class="cards-grid sedes-grid">
-            <article class="card">
-              <h3>Sede Ballester</h3>
-              <p>Vicente Lopez 2996, Villa Ballester</p>
-              <p><strong>Tel:</strong> (011) 4738 0400</p>
-              <iframe
-                class="sede-mapa"
-                src="https://www.google.com/maps?q=Vicente+Lopez+2996,+Villa+Ballester&output=embed"
-                title="Mapa Sede Ballester"
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-              ></iframe>
-            </article>
-            <article class="card">
-              <h3>Sede Chilavert</h3>
-              <p>Lacroze 6115, Chilavert</p>
-              <p><strong>Tel:</strong> (011) 4589 8733</p>
-              <iframe
-                class="sede-mapa"
-                src="https://www.google.com/maps?q=Lacroze+6115,+Chilavert&output=embed"
-                title="Mapa Sede Chilavert"
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-              ></iframe>
-            </article>
-          </div>
-        </div>
-      </section>
-
-
-
-
-
-
-
-
-    </main>
-            <a href="https://wa.me/5491167956784"
-              class="whatsapp-float"
-              target="_blank"
-              aria-label="Contactar por WhatsApp">
-              <img src="Fotos/whatsapp.webp" alt="WhatsApp" />
-            </a>
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-social">
-          <a class="social-link" href="https://www.instagram.com/veterinaria.lahuella/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
-            Instagram
-          </a>
-          <a class="social-link" href="https://www.facebook.com/vetelahuella" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.3H8v3h2.5V21h3z"/></svg>
-            Facebook
-          </a>
-        </div>
-        <p>© 2026 Veterinaria La Huella · Cuidamos con amor.</p>
-      </div>
-    </footer>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

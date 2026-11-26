@@ -1,9 +1,29 @@
 # Backend — La Huella Veterinaria
 
-Node.js + Express + MySQL. El mismo servidor entrega el sitio y la API.
-Los archivos públicos se sirven desde la carpeta hermana `frontend/`;
-las direcciones del sitio siguen siendo `/`, `/cuenta.html`, `/turnos.html`,
-`/producto.html` y `/admin.html`. El backend y `docs/` no se publican.
+Node.js + Express + MySQL. La API vive en `/api`; el mismo servidor publica el
+build de React (`frontend/dist`) si existe.
+
+## Arquitectura
+
+```
+routes/        define los endpoints y sus middlewares
+controllers/   reciben la petición HTTP y responden (sin lógica de negocio)
+services/      reglas de negocio (turnos, productos, autenticación)
+repositories/  todo el SQL; reciben una conexión opcional para usar transacciones
+models/        validación y forma de los datos (Usuario, Turno, Producto)
+middleware/    auth (login/admin) y errorHandler centralizado
+exceptions/    AppError y derivadas (400, 401, 403, 404, 409)
+responses/     formato único de respuestas
+```
+
+Formato de respuesta: `{ success: true, message, data }` o `{ success: false, message }`.
+
+Reglas de negocio de turnos: horario libre y con 5 h de anticipación, sin
+turnos superpuestos para un mismo cliente, el cliente solo cancela sus propios
+turnos reservados (se libera el horario) y el administrador cambia estados.
+El stock nunca puede quedar negativo.
+
+Tests: `npm test`.
 
 ## Base de datos
 
@@ -25,7 +45,9 @@ npm run init                # crea la base, tablas y datos iniciales (sedes, esp
 npm start
 ```
 
-Abrí **http://localhost:3000** (no abras los .html directo desde el explorador).
+Para usar el sitio: compilá el frontend (`cd frontend && npm install && npm run build`)
+y abrí **http://localhost:3000**. Para desarrollar, corré `npm run dev` en `frontend/`
+y abrí **http://localhost:5173** (Vite redirige `/api` al backend).
 
 Al arrancar, el servidor genera los horarios de hoy y los próximos 14 días
 (lunes a viernes 10–13 y 16–19, sábados 10–13, turnos de 30 min; domingos cerrado).
@@ -64,7 +86,11 @@ Las sesiones ya abiertas muestran el nombre actualizado al volver a iniciar sesi
 | GET    | /api/turnos/disponibilidad?sede_id=1 | Fechas/horas libres de una sucursal          | público |
 | POST   | /api/turnos                        | Reservar `{ sede_id, fecha, hora, motivo }`    | login |
 | GET    | /api/turnos/mios                   | Mis turnos                                     | login |
+| PATCH  | /api/turnos/:id/cancelar           | Cancelar mi turno reservado (libera el horario) | login |
 | GET    | /api/turnos                        | Todos los turnos                               | admin |
 | PATCH  | /api/turnos/:id                    | Cambiar estado (cancelar libera el horario)    | admin |
 | GET    | /api/productos                     | Productos con stock                            | admin |
+| POST   | /api/productos                     | Crear producto `{ nombre, precio, categoria, stock }` | admin |
+| PUT    | /api/productos/:id                 | Editar producto                                | admin |
+| DELETE | /api/productos/:id                 | Eliminar producto                              | admin |
 | PATCH  | /api/productos/:id/stock           | Sumar/restar stock `{ delta }`                 | admin |
